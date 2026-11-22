@@ -1,0 +1,7 @@
+# Ignore raw high-bitrate category video files exceeding GitHub 100MB cap & Vercel 100MB limit
+videos/
+
+# System and temporary files
+.DS_Store
+Thumbs.db
+*.log

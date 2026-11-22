@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFEFEF"/>
+      <stop offset="100%" stop-color="#E2E2E2"/>
+    </linearGradient>
+    <pattern id="grid2" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#D8D8D8" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="400" fill="url(#bgGrad2)"/>
+  <rect width="640" height="400" fill="url(#grid2)"/>
+  
+  <!-- 2.39:1 Anamorphic Cinema Scope -->
+  <g transform="translate(140, 80)">
+    <!-- Letterbox Frame -->
+    <rect x="0" y="0" width="360" height="240" rx="14" fill="#181818" stroke="#111111" stroke-width="3"/>
+    
+    <!-- Anamorphic Scope Bars -->
+    <rect x="15" y="35" width="330" height="170" rx="6" fill="#282828" stroke="#FFE500" stroke-width="1.5" stroke-dasharray="4 4"/>
+    
+    <!-- Brand Film Typography & Logo -->
+    <circle cx="180" cy="105" r="30" fill="none" stroke="#FFE500" stroke-width="3"/>
+    <polygon points="174,93 194,105 174,117" fill="#FFE500"/>
+    
+    <text x="180" y="165" font-family="'Space Mono', monospace" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">BRAND NARRATIVE</text>
+    <text x="180" y="188" font-family="'Patrick Hand', cursive" font-size="16" fill="#BBBBBB" text-anchor="middle">vision · identity · emotion</text>
+    
+    <!-- Lens Flare Streak -->
+    <line x1="40" y1="105" x2="320" y2="105" stroke="rgba(255, 229, 0, 0.45)" stroke-width="2"/>
+    
+    <!-- Timecode & Rec Indicator -->
+    <circle cx="35" cy="20" r="5" fill="#EF4444"/>
+    <text x="48" y="24" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#FFFFFF">REC 24.00 FPS</text>
+    <text x="325" y="24" font-family="'Space Mono', monospace" font-size="10" fill="#888" text-anchor="end">4K DCI</text>
+  </g>
+</svg>

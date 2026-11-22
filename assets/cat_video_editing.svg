@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDECE8"/>
+      <stop offset="100%" stop-color="#DFDDD8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#bgGrad5)"/>
+  
+  <!-- NLE Editing Timeline (Premiere Pro / After Effects style) -->
+  <g transform="translate(110, 80)">
+    <!-- Timeline Window -->
+    <rect x="0" y="0" width="420" height="240" rx="14" fill="#1C1C1E" stroke="#111111" stroke-width="3"/>
+    
+    <!-- Time ruler -->
+    <rect x="0" y="0" width="420" height="34" rx="14 14 0 0" fill="#2C2C2E"/>
+    <line x1="0" y1="34" x2="420" y2="34" stroke="#3A3A3C" stroke-width="1.5"/>
+    <text x="25" y="22" font-family="'Space Mono', monospace" font-size="11" fill="#FFE500" font-weight="700">00:01:24:18</text>
+    
+    <!-- Video Track 2 -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="110" height="34" rx="6" fill="#3B82F6" stroke="#111" stroke-width="1.5"/>
+      <text x="10" y="22" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#FFF">V2 // VFX_A</text>
+      
+      <rect x="120" y="0" width="180" height="34" rx="6" fill="#8B5CF6" stroke="#111" stroke-width="1.5"/>
+      <text x="130" y="22" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#FFF">TITLE_OVERLAY.mov</text>
+    </g>
+    
+    <!-- Video Track 1 -->
+    <g transform="translate(20, 95)">
+      <rect x="0" y="0" width="160" height="38" rx="6" fill="#10B981" stroke="#111" stroke-width="1.5"/>
+      <text x="10" y="24" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#FFF">HERO_TAKE_01.mp4</text>
+      
+      <rect x="170" y="0" width="210" height="38" rx="6" fill="#F59E0B" stroke="#111" stroke-width="1.5"/>
+      <text x="180" y="24" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#FFF">DRONE_ORBIT_4K.mov</text>
+    </g>
+    
+    <!-- Audio Waveform Track -->
+    <g transform="translate(20, 145)">
+      <rect x="0" y="0" width="380" height="42" rx="6" fill="#252528" stroke="#3A3A3C" stroke-width="1.5"/>
+      <!-- Audio Waveform -->
+      <path d="M 10 21 L 25 10 L 35 32 L 50 14 L 65 28 L 80 8 L 95 34 L 115 15 L 130 27 L 150 6 L 165 36 L 180 12 L 200 30 L 220 8 L 240 34 L 260 12 L 280 30 L 300 10 L 320 32 L 340 14 L 360 28 L 370 21" fill="none" stroke="#FFE500" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Red Razor Cut Playhead -->
+    <line x1="225" y1="10" x2="225" y2="230" stroke="#EF4444" stroke-width="2.5"/>
+    <polygon points="218,8 232,8 225,24" fill="#EF4444"/>
+    
+    <text x="210" y="222" font-family="'Patrick Hand', cursive" font-size="15" fill="#888" text-anchor="middle">cut · pace · rhythm</text>
+  </g>
+</svg>
