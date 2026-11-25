@@ -388,7 +388,6 @@
       border-radius: 6px;
       overflow: hidden;
       position: relative;
-      cursor: pointer;
     }
 
     .photo-display-img {
@@ -396,27 +395,6 @@
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    /* Hover hint to change photo */
-    .photo-hover-hint {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #FFF;
-      font-size: 12px;
-      font-weight: 600;
-      gap: 4px;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .photo-display-box:hover .photo-hover-hint {
-      opacity: 1;
     }
 
     /* Bottom barcode snippet on Polaroid */
@@ -1314,7 +1292,7 @@
       transform: scale(1.02);
     }
 
-    #hiddenPhotoInput { display: none; }
+
 
     .toast-msg {
       position: fixed;
@@ -1944,14 +1922,9 @@
                 <span>hello!!! have a nice day</span>
               </div>
 
-              <!-- Photo Frame (Clickable to change photo anytime!) -->
-              <input type="file" id="hiddenPhotoInput" accept="image/*" />
-              <div class="photo-display-box" onclick="document.getElementById('hiddenPhotoInput').click()" title="Click to upload your own photo">
+              <!-- Main Portrait Photo Frame -->
+              <div class="photo-display-box">
                 <img id="cardAvatarImg" src="./assets/Neon%20Shashi%20Singh%20Poster.png" class="photo-display-img" alt="Shashi Singh" />
-                <div class="photo-hover-hint">
-                  <span style="font-size:20px;">📷</span>
-                  <span>Change Photo</span>
-                </div>
               </div>
 
               <!-- Bottom Barcode & Serial -->
@@ -2536,22 +2509,6 @@
       if (cardLink) cardLink.style.transform = 'none';
     })();
 
-    /* Photo Upload */
-    const photoInput = document.getElementById('hiddenPhotoInput');
-    const avatarImg = document.getElementById('cardAvatarImg');
-
-    photoInput.addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          avatarImg.src = evt.target.result;
-          showToast('Photo updated successfully!');
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
     /* Showreel Video Controls */
     const video = document.getElementById('mainShowcaseVideo');
     const playBtn = document.getElementById('videoToggleBtn');
@@ -2918,7 +2875,7 @@
       });
 
       // Buttons, links, and clickable items hover
-      const interactiveEls = document.querySelectorAll('button, a, .nav-sketch-pill, .photo-display-box, .tool-pill');
+      const interactiveEls = document.querySelectorAll('button, a, .nav-sketch-pill, .tool-pill');
       interactiveEls.forEach(el => {
         el.addEventListener('mouseenter', () => {
           if (!cursor.classList.contains('cursor-card-hover')) {
