@@ -172,55 +172,64 @@
       overflow: visible;
     }
 
-    /* GIANT HIGHLIGHTER YELLOW BACKGROUND SCRIPT */
+    /* GIANT HIGHLIGHTER YELLOW BACKGROUND SCRIPT (AI VIDEO EDITOR) */
     .hero-bg-text-wrap {
       position: absolute;
-      top: 65px;
+      top: 60px;
       left: 0;
       width: 100%;
-      text-align: center;
+      height: 500px;
       user-select: none;
       z-index: 1;
       pointer-events: none;
+      overflow: visible;
     }
 
     .hero-bg-text-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transform: rotate(-1.5deg);
-      pointer-events: none;
+      position: relative;
       width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 100%;
+      pointer-events: none;
     }
 
     .hero-bg-title {
-      font-family: var(--font-hand);
-      font-size: clamp(65px, 11vw, 140px);
-      line-height: 0.82;
-      font-weight: 700;
-      color: rgba(255, 229, 0, 0.88);
-      letter-spacing: -0.02em;
-      text-shadow: 0 4px 35px rgba(255, 229, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
       margin: 0;
       padding: 0;
     }
 
     .hero-bg-word1 {
-      display: block;
+      position: absolute;
+      top: 55px;
+      left: 50%;
+      transform: translateX(clamp(-540px, -36vw, -230px)) rotate(-4deg);
+      font-family: var(--font-hand);
+      font-size: clamp(75px, 10.5vw, 155px);
+      font-weight: 700;
+      color: #FFE500;
+      letter-spacing: -0.01em;
+      line-height: 0.88;
       white-space: nowrap;
-      transform: none;
+      text-shadow: 0 4px 35px rgba(255, 229, 0, 0.45);
     }
 
     .hero-bg-word2 {
-      display: block;
+      position: absolute;
+      top: 175px;
+      left: 50%;
+      transform: translateX(clamp(110px, 13vw, 190px)) rotate(3deg);
+      font-family: var(--font-hand);
+      font-size: clamp(80px, 11.5vw, 165px);
+      font-weight: 700;
+      color: #FFE500;
+      letter-spacing: -0.01em;
+      line-height: 0.88;
       white-space: nowrap;
-      transform: translateX(clamp(190px, 22vw, 260px));
-      margin-top: clamp(2px, 1vw, 12px);
+      text-shadow: 0 4px 35px rgba(255, 229, 0, 0.45);
     }
 
     /* ==========================================================================
@@ -1649,20 +1658,23 @@
         padding-top: 10px !important;
       }
       .hero-bg-text-wrap {
-        top: 85px !important;
-      }
-      .hero-bg-title {
-        flex-direction: column !important;
-        font-size: clamp(34px, 9vw, 44px) !important;
-        line-height: 0.88 !important;
-        gap: 4px !important;
+        top: 70px !important;
+        height: 380px !important;
       }
       .hero-bg-word1 {
-        transform: translateX(-40px) !important;
+        top: 15px !important;
+        left: 50% !important;
+        transform: translateX(-105px) rotate(-3.5deg) !important;
+        font-size: clamp(32px, 8.8vw, 42px) !important;
+        line-height: 0.9 !important;
       }
       .hero-bg-word2 {
-        transform: translateX(55px) !important;
-        margin-top: 2px !important;
+        top: 70px !important;
+        left: 50% !important;
+        transform: translateX(8px) rotate(3deg) !important;
+        font-size: clamp(34px, 9.2vw, 44px) !important;
+        line-height: 0.9 !important;
+        margin-top: 0 !important;
       }
       .about-me-section {
         margin: 40px auto 60px !important;
@@ -1899,8 +1911,8 @@
     <div class="hero-bg-text-wrap">
       <div class="hero-bg-text-container">
         <div class="hero-bg-title">
-          <span class="hero-bg-word1">ai video</span>
-          <span class="hero-bg-word2">editor</span>
+          <span class="hero-bg-word1">AI Video</span>
+          <span class="hero-bg-word2">Editor</span>
         </div>
       </div>
     </div>
