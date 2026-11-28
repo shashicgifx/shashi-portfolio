@@ -2796,7 +2796,9 @@
         } else if (v.url && v.url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i)) {
           return `<img src="${v.url}" alt="${v.title || 'Photo'}" class="direct-media-poster" />`;
         } else {
-          return `<video controls ${autoplay ? 'autoplay' : ''} playsinline preload="metadata" poster="${v.poster || './assets/video_poster.png'}" src="${v.url}"></video>`;
+          const safeUrl = v.url ? encodeURI(v.url) : '';
+          const safePoster = encodeURI(v.poster || './assets/video_poster.png');
+          return `<video controls ${autoplay ? 'autoplay' : ''} playsinline preload="metadata" poster="${safePoster}"><source src="${safeUrl}" type="video/mp4" /></video>`;
         }
       }
 
