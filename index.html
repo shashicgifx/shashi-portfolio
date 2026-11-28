@@ -1599,6 +1599,322 @@
       font-weight: 700;
     }
 
+    /* ==========================================================================
+       DIRECT WORK CATEGORIES SHOWCASE (NO CONTAINERS, ANIMATED CAPSULE GRID)
+       ========================================================================== */
+    .cat-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 48px;
+      max-width: 900px;
+    }
+
+    .cat-filter-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-dark);
+      background: #FFFFFF;
+      border: 1.5px solid #111;
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 2px 2px 0 #111;
+    }
+
+    .cat-filter-pill:hover {
+      transform: translateY(-2px);
+      background: #FFFCE0;
+    }
+
+    .cat-filter-pill.active {
+      background: var(--yellow);
+      color: #111;
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 0 #111;
+    }
+
+    .direct-categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .direct-cat-block {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .direct-cat-block.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .direct-cat-block.is-hidden {
+      display: none;
+    }
+
+    .direct-cat-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px dashed rgba(0, 0, 0, 0.14);
+    }
+
+    .direct-cat-title-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .direct-cat-title {
+      font-family: var(--font-marker);
+      font-size: clamp(26px, 3.2vw, 36px);
+      color: #111;
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .direct-cat-arrow {
+      font-family: var(--font-hand);
+      font-size: 30px;
+      font-weight: 700;
+      color: #111;
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .direct-cat-block:hover .direct-cat-arrow {
+      transform: translateX(8px);
+    }
+
+    .direct-cat-sticky {
+      font-family: var(--font-hand);
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      background: var(--yellow);
+      padding: 3px 12px;
+      border-radius: 4px;
+      transform: rotate(-2deg);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .direct-cat-meta-right {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .direct-cat-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #111;
+      background: rgba(255, 229, 0, 0.28);
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+
+    .direct-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px 26px;
+      align-items: start;
+    }
+
+    .direct-cat-grid.is-photography {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .direct-media-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(24px) scale(0.97);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .direct-media-item.is-revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .direct-media-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 75px;
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
+      border: 2px solid transparent;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.25s ease;
+    }
+
+    .direct-media-frame.is-photo {
+      aspect-ratio: 3 / 4;
+      border-radius: 26px;
+    }
+
+    .direct-media-frame:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14), 0 0 0 3px var(--yellow);
+    }
+
+    .direct-media-frame.is-playing {
+      border-radius: 18px;
+      transform: none;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16), 0 0 0 2.5px #111;
+      cursor: default;
+    }
+
+    .direct-media-frame img.direct-media-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+    }
+
+    .direct-media-frame:hover img.direct-media-poster {
+      transform: scale(1.06);
+      filter: brightness(0.92);
+    }
+
+    .direct-media-frame video,
+    .direct-media-frame iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border: none;
+    }
+
+    .direct-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.05) 70%);
+      transition: background 0.25s ease;
+    }
+
+    .direct-media-frame:hover .direct-play-overlay {
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.36) 0%, rgba(0, 0, 0, 0.08) 70%);
+    }
+
+    .direct-play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: #111;
+      border: 2px solid #111;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      transform: scale(0.94);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+    }
+
+    .direct-media-frame:hover .direct-play-btn {
+      transform: scale(1.08);
+      background: #FFF200;
+    }
+
+    .direct-media-caption {
+      padding: 0 14px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .direct-media-title {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.3;
+    }
+
+    .direct-media-expand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .direct-media-expand:hover {
+      color: #111;
+      background: rgba(255, 229, 0, 0.35);
+    }
+
+    .direct-empty-note {
+      font-family: var(--font-patrick);
+      font-size: 18px;
+      color: var(--text-muted);
+      padding: 16px 22px;
+      border: 1.5px dashed rgba(0, 0, 0, 0.16);
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      width: fit-content;
+    }
+
+    @media (max-width: 680px) {
+      .direct-cat-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .direct-cat-grid.is-photography {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .direct-media-frame {
+        border-radius: 36px;
+      }
+      .direct-cat-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
     /* Video Grid inside category gallery when videos are added */
     .category-videos-grid {
       display: grid;
@@ -2110,7 +2426,7 @@
   </section>
 
   <!-- ==========================================================================
-       WORK CATEGORIES (MATCHES FEATURED PROJECTS & EXPERIENCE EXACTLY)
+       WORK CATEGORIES (DIRECT ANIMATED SHOWCASE - NO CONTAINERS)
        ========================================================================== -->
   <section class="works-section categories-section" id="categories">
     <div class="works-header">
@@ -2118,184 +2434,13 @@
       <p>Explore creative disciplines, film directions, visual effects, and storytelling showcases.</p>
     </div>
 
-    <!-- 6 Clickable Category Cards -->
-    <div class="projects-grid categories-grid" id="categoriesGrid">
-      
-      <!-- Category 1: AI Ad Films -->
-      <article class="project-card category-card " data-category-id="ai-ad-films" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open AI Ad Films gallery">
-        <span class="project-sticky-note">commercial ✨</span>
-        <div class="project-card-thumb category-thumb-wrap">
-          <img src="./assets/cat_ai_ad_films.svg" alt="AI Ad Films" />
-          <div class="category-thumb-overlay">
-            <span class="category-open-pill">OPEN GALLERY ↗</span>
-          </div>
-        </div>
-        <div class="project-meta-row">
-          <span class="project-client">Commercial &amp; Promotional</span>
-          <span class="category-count-badge" data-badge-for="ai-ad-films">0 videos</span>
-        </div>
-        <h4 class="project-title">AI Ad Films</h4>
-        <p class="project-desc">
-          High-impact AI commercial advertisements, generative product spots, and viral campaigns.
-        </p>
-        <div class="project-tools">
-          <span class="tool-pill">Runway Gen-3</span>
-          <span class="tool-pill">Higgsfield</span>
-          <span class="tool-pill">Premiere Pro</span>
-          <span class="tool-pill">Claude AI</span>
-        </div>
-        <div class="category-card-action">
-          <span>Click to view gallery</span>
-          <span class="category-arrow-icon">→</span>
-        </div>
-      </article>
-
-      <!-- Category 2: Brand Films -->
-      <article class="project-card category-card " data-category-id="brand-films" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open Brand Films gallery">
-        <span class="project-sticky-note alt">cinematic 🎬</span>
-        <div class="project-card-thumb category-thumb-wrap">
-          <img src="./assets/cat_brand_films.svg" alt="Brand Films" />
-          <div class="category-thumb-overlay">
-            <span class="category-open-pill">OPEN GALLERY ↗</span>
-          </div>
-        </div>
-        <div class="project-meta-row">
-          <span class="project-client">Narrative &amp; Identity</span>
-          <span class="category-count-badge" data-badge-for="brand-films">0 videos</span>
-        </div>
-        <h4 class="project-title">Brand Films</h4>
-        <p class="project-desc">
-          Cinematic brand storytelling, corporate identity films, and creative vision showcases.
-        </p>
-        <div class="project-tools">
-          <span class="tool-pill">After Effects</span>
-          <span class="tool-pill">Color Grading</span>
-          <span class="tool-pill">Sound Design</span>
-          <span class="tool-pill">Premiere Pro</span>
-        </div>
-        <div class="category-card-action">
-          <span>Click to view gallery</span>
-          <span class="category-arrow-icon">→</span>
-        </div>
-      </article>
-
-      <!-- Category 3: Motion Graphics -->
-      <article class="project-card category-card " data-category-id="motion-graphics" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open Motion Graphics gallery">
-        <span class="project-sticky-note">kinetic ⚡</span>
-        <div class="project-card-thumb category-thumb-wrap">
-          <img src="./assets/cat_motion_graphics.svg" alt="Motion Graphics" />
-          <div class="category-thumb-overlay">
-            <span class="category-open-pill">OPEN GALLERY ↗</span>
-          </div>
-        </div>
-        <div class="project-meta-row">
-          <span class="project-client">Kinetic &amp; Visual Effects</span>
-          <span class="category-count-badge" data-badge-for="motion-graphics">0 videos</span>
-        </div>
-        <h4 class="project-title">Motion Graphics</h4>
-        <p class="project-desc">
-          Dynamic kinetic typography, broadcast package motion graphics, and logo animations.
-        </p>
-        <div class="project-tools">
-          <span class="tool-pill">After Effects</span>
-          <span class="tool-pill">Illustrator</span>
-          <span class="tool-pill">Cinema 4D</span>
-          <span class="tool-pill">Lottie</span>
-        </div>
-        <div class="category-card-action">
-          <span>Click to view gallery</span>
-          <span class="category-arrow-icon">→</span>
-        </div>
-      </article>
-
-      <!-- Category 4: Animation -->
-      <article class="project-card category-card " data-category-id="animation" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open Animation gallery">
-        <span class="project-sticky-note alt">creative 🎨</span>
-        <div class="project-card-thumb category-thumb-wrap">
-          <img src="./assets/cat_animation.svg" alt="Animation" />
-          <div class="category-thumb-overlay">
-            <span class="category-open-pill">OPEN GALLERY ↗</span>
-          </div>
-        </div>
-        <div class="project-meta-row">
-          <span class="project-client">2D/3D &amp; Character</span>
-          <span class="category-count-badge" data-badge-for="animation">0 videos</span>
-        </div>
-        <h4 class="project-title">Animation</h4>
-        <p class="project-desc">
-          Character animation, stylistic visual storytelling, and 2D/3D composite sequences.
-        </p>
-        <div class="project-tools">
-          <span class="tool-pill">Nuke</span>
-          <span class="tool-pill">Fusion</span>
-          <span class="tool-pill">After Effects</span>
-          <span class="tool-pill">Photoshop</span>
-        </div>
-        <div class="category-card-action">
-          <span>Click to view gallery</span>
-          <span class="category-arrow-icon">→</span>
-        </div>
-      </article>
-
-      <!-- Category 5: Video Editing -->
-      <article class="project-card category-card " data-category-id="video-editing" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open Video Editing gallery">
-        <span class="project-sticky-note">post-prod ✂️</span>
-        <div class="project-card-thumb category-thumb-wrap">
-          <img src="./assets/cat_video_editing.svg" alt="Video Editing" />
-          <div class="category-thumb-overlay">
-            <span class="category-open-pill">OPEN GALLERY ↗</span>
-          </div>
-        </div>
-        <div class="project-meta-row">
-          <span class="project-client">Pacing &amp; Post-Production</span>
-          <span class="category-count-badge" data-badge-for="video-editing">0 videos</span>
-        </div>
-        <h4 class="project-title">Video Editing</h4>
-        <p class="project-desc">
-          Rhythm-driven montage cutting, sound design synchronization, and color grading.
-        </p>
-        <div class="project-tools">
-          <span class="tool-pill">Premiere Pro</span>
-          <span class="tool-pill">Filmora</span>
-          <span class="tool-pill">Audio Sync</span>
-          <span class="tool-pill">Color Match</span>
-        </div>
-        <div class="category-card-action">
-          <span>Click to view gallery</span>
-          <span class="category-arrow-icon">→</span>
-        </div>
-      </article>
-
-      <!-- Category 6: Photography -->
-      <article class="project-card category-card " data-category-id="photography" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Open Photography gallery">
-        <span class="project-sticky-note alt">lens 📷</span>
-        <div class="project-card-thumb category-thumb-wrap">
-          <img src="./assets/cat_photography.svg" alt="Photography" />
-          <div class="category-thumb-overlay">
-            <span class="category-open-pill">OPEN GALLERY ↗</span>
-          </div>
-        </div>
-        <div class="project-meta-row">
-          <span class="project-client">Visuals &amp; Prompts</span>
-          <span class="category-count-badge" data-badge-for="photography">0 videos</span>
-        </div>
-        <h4 class="project-title">Photography</h4>
-        <p class="project-desc">
-          Framed lens captures, editorial portraiture, and neural image synthesis direction.
-        </p>
-        <div class="project-tools">
-          <span class="tool-pill">Photoshop</span>
-          <span class="tool-pill">Lightroom</span>
-          <span class="tool-pill">OpenArt</span>
-          <span class="tool-pill">Midjourney</span>
-        </div>
-        <div class="category-card-action">
-          <span>Click to view gallery</span>
-          <span class="category-arrow-icon">→</span>
-        </div>
-      </article>
-
+    <!-- Interactive Category Filter Pills -->
+    <div class="cat-filter-bar" id="catFilterBar">
+      <button class="cat-filter-pill active" data-filter="all">All Works</button>
     </div>
+
+    <!-- Direct Showcase List (Populated from categories-data.js) -->
+    <div class="direct-categories-list" id="directCategoriesList"></div>
   </section>
 
   <!-- ==========================================================================
@@ -2633,39 +2778,179 @@
       const modalDesc = document.getElementById('modalCategoryDesc');
       const modalBadge = document.getElementById('modalCategoryBadge');
       const modalBody = document.getElementById('modalCategoryBody');
-      const categoryCards = document.querySelectorAll('.category-card');
+      const directList = document.getElementById('directCategoriesList');
+      const filterBar = document.getElementById('catFilterBar');
 
-      // Update badge counts from WORK_CATEGORIES_DATA
-      function updateCategoryBadges() {
-        if (typeof window.WORK_CATEGORIES_DATA !== 'undefined') {
-          window.WORK_CATEGORIES_DATA.forEach(cat => {
-            const badgeEl = document.querySelector(`[data-badge-for="${cat.id}"]`);
-            if (badgeEl) {
-              const count = (cat.videos && Array.isArray(cat.videos)) ? cat.videos.length : 0;
-              const unit = cat.id === 'photography' ? (count === 1 ? 'photo' : 'photos') : (count === 1 ? 'video' : 'videos');
-              badgeEl.textContent = `${count} ${unit}`;
-            }
-          });
+      function buildMediaPlayerHtml(v, autoplay = true) {
+        if (v.url && (v.url.includes('youtube.com') || v.url.includes('youtu.be'))) {
+          let videoId = '';
+          if (v.url.includes('youtu.be/')) {
+            videoId = v.url.split('youtu.be/')[1].split('?')[0];
+          } else if (v.url.includes('v=')) {
+            videoId = v.url.split('v=')[1].split('&')[0];
+          }
+          return `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=${autoplay ? 1 : 0}" allowfullscreen allow="autoplay; encrypted-media" frameborder="0"></iframe>`;
+        } else if (v.url && v.url.includes('vimeo.com')) {
+          const vimeoId = v.url.split('/').filter(Boolean).pop();
+          return `<iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=${autoplay ? 1 : 0}" allowfullscreen allow="autoplay" frameborder="0"></iframe>`;
+        } else if (v.url && v.url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i)) {
+          return `<img src="${v.url}" alt="${v.title || 'Photo'}" class="direct-media-poster" />`;
+        } else {
+          return `<video controls ${autoplay ? 'autoplay' : ''} playsinline preload="metadata" poster="${v.poster || './assets/video_poster.png'}" src="${v.url}"></video>`;
         }
       }
-      updateCategoryBadges();
+
+      // Render direct containerless category sections + filter pills
+      function renderDirectCategories() {
+        if (!directList || typeof window.WORK_CATEGORIES_DATA === 'undefined') return;
+
+        const categories = window.WORK_CATEGORIES_DATA;
+
+        if (filterBar) {
+          categories.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'cat-filter-pill';
+            btn.setAttribute('data-filter', cat.id);
+            btn.textContent = cat.title;
+            filterBar.appendChild(btn);
+          });
+
+          filterBar.addEventListener('click', (e) => {
+            const pill = e.target.closest('.cat-filter-pill');
+            if (!pill) return;
+            const filter = pill.getAttribute('data-filter');
+            filterBar.querySelectorAll('.cat-filter-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            directList.querySelectorAll('.direct-cat-block').forEach(block => {
+              const catId = block.getAttribute('data-cat-id');
+              if (filter === 'all' || catId === filter) {
+                block.classList.remove('is-hidden');
+                requestAnimationFrame(() => block.classList.add('is-revealed'));
+              } else {
+                block.classList.add('is-hidden');
+              }
+            });
+          });
+        }
+
+        directList.innerHTML = '';
+        categories.forEach((cat, catIdx) => {
+          const vList = Array.isArray(cat.videos) ? cat.videos : [];
+          const count = vList.length;
+          const unit = cat.id === 'photography' ? (count === 1 ? 'photo' : 'photos') : (count === 1 ? 'video' : 'videos');
+
+          const block = document.createElement('div');
+          block.className = 'direct-cat-block';
+          block.setAttribute('data-cat-id', cat.id);
+
+          const toolsHtml = (cat.tools || []).map(t => `<span class="tool-pill">${t}</span>`).join('');
+
+          let contentHtml = '';
+          if (count === 0) {
+            contentHtml = `
+              <div class="direct-empty-note">
+                <span>🎬</span>
+                <span>Reels &amp; breakdowns coming soon in ${cat.title}</span>
+              </div>
+            `;
+          } else {
+            const isPhotoCat = cat.id === 'photography';
+            const itemsHtml = vList.map((v, idx) => {
+              const isPhoto = isPhotoCat || (v.url && v.url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i));
+              const posterSrc = v.poster || (isPhoto ? v.url : './assets/video_poster.png');
+              return `
+                <div class="direct-media-item" style="transition-delay: ${Math.min(idx * 65, 390)}ms;">
+                  <div class="direct-media-frame ${isPhoto ? 'is-photo' : ''}" data-cat-id="${cat.id}" data-video-idx="${idx}" tabindex="0" role="button" aria-label="Play ${v.title || 'Media'}">
+                    <img src="${posterSrc}" alt="${v.title || 'Work preview'}" class="direct-media-poster" loading="lazy" />
+                    ${isPhoto ? '' : `
+                      <div class="direct-play-overlay">
+                        <span class="direct-play-btn">▶ PLAY</span>
+                      </div>
+                    `}
+                  </div>
+                  <div class="direct-media-caption">
+                    <span class="direct-media-title">${v.title || 'Untitled'}</span>
+                    ${isPhoto ? '' : `<button class="direct-media-expand" data-expand-cat="${cat.id}" data-expand-idx="${idx}" title="Open category gallery">↗ Expand</button>`}
+                  </div>
+                </div>
+              `;
+            }).join('');
+
+            contentHtml = `<div class="direct-cat-grid ${isPhotoCat ? 'is-photography' : ''}">${itemsHtml}</div>`;
+          }
+
+          block.innerHTML = `
+            <div class="direct-cat-header">
+              <div class="direct-cat-title-group">
+                <h4 class="direct-cat-title">${cat.title}</h4>
+                <span class="direct-cat-arrow">→</span>
+                ${cat.stickyTag ? `<span class="direct-cat-sticky">${cat.stickyTag}</span>` : ''}
+                <span class="direct-cat-count">${count} ${unit}</span>
+              </div>
+              <div class="direct-cat-meta-right">
+                ${toolsHtml}
+              </div>
+            </div>
+            ${contentHtml}
+          `;
+
+          directList.appendChild(block);
+        });
+
+        // Inline click-to-play & photo lightbox
+        directList.addEventListener('click', (e) => {
+          const expandBtn = e.target.closest('.direct-media-expand');
+          if (expandBtn) {
+            e.stopPropagation();
+            const cId = expandBtn.getAttribute('data-expand-cat');
+            openCategoryGallery(cId);
+            return;
+          }
+
+          const frame = e.target.closest('.direct-media-frame');
+          if (!frame || frame.classList.contains('is-playing')) return;
+
+          const cId = frame.getAttribute('data-cat-id');
+          const vIdx = parseInt(frame.getAttribute('data-video-idx'), 10);
+          const cat = window.WORK_CATEGORIES_DATA.find(c => c.id === cId);
+          if (!cat || !cat.videos || !cat.videos[vIdx]) return;
+          const v = cat.videos[vIdx];
+
+          const isPhoto = cId === 'photography' || (v.url && v.url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i));
+          if (isPhoto) {
+            openCategoryGallery(cId);
+            return;
+          }
+
+          // Pause any other currently playing inline videos
+          directList.querySelectorAll('video').forEach(vid => vid.pause());
+
+          frame.classList.add('is-playing');
+          frame.innerHTML = buildMediaPlayerHtml(v, true);
+        });
+
+        // Scroll Reveal Animation via IntersectionObserver
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.01, rootMargin: '0px 0px 120px 0px' });
+
+        directList.querySelectorAll('.direct-cat-block, .direct-media-item').forEach(el => {
+          revealObserver.observe(el);
+        });
+      }
+
+      renderDirectCategories();
 
       function openCategoryGallery(categoryId) {
         let cat = null;
         if (typeof window.WORK_CATEGORIES_DATA !== 'undefined') {
           cat = window.WORK_CATEGORIES_DATA.find(c => c.id === categoryId);
-        }
-
-        if (!cat) {
-          const cardEl = document.querySelector(`[data-category-id="${categoryId}"]`);
-          if (cardEl) {
-            cat = {
-              id: categoryId,
-              title: cardEl.querySelector('.project-title')?.textContent || 'Category',
-              description: cardEl.querySelector('.project-desc')?.textContent || '',
-              videos: []
-            };
-          }
         }
 
         if (!cat || !modal) return;
@@ -2676,45 +2961,18 @@
         const unit = cat.id === 'photography' ? (vCount === 1 ? 'photo' : 'photos') : (vCount === 1 ? 'video' : 'videos');
         modalBadge.textContent = `${vCount} ${unit}`;
 
-        // Render gallery body based on videos array in categories-data.js
         if (vCount === 0) {
           modalBody.innerHTML = `
             <div class="empty-gallery-placeholder">
               <div class="empty-gallery-icon">🎬</div>
               <h4 class="empty-gallery-heading">No videos in this category yet</h4>
               <p class="empty-gallery-sub">Add your videos in categories-data.js</p>
-              <div class="empty-gallery-guide">
-                💡 <strong>How to add videos to "${cat.title}":</strong>
-                <br/>
-                1. Put your video file in the project folder (e.g. <code>shashi-portfolio/videos/</code> or <code>assets/</code>).
-                <br/>
-                2. Open <code>categories-data.js</code> and add your video details to <code>videos: []</code> for this category.
-                <br/>
-                It will automatically display here in full HD with inline controls!
-              </div>
             </div>
           `;
         } else {
           let gridHtml = '<div class="category-videos-grid">';
           cat.videos.forEach(v => {
-            let playerHtml = '';
-            if (v.url && (v.url.includes('youtube.com') || v.url.includes('youtu.be'))) {
-              let videoId = '';
-              if (v.url.includes('youtu.be/')) {
-                videoId = v.url.split('youtu.be/')[1].split('?')[0];
-              } else if (v.url.includes('v=')) {
-                videoId = v.url.split('v=')[1].split('&')[0];
-              }
-              playerHtml = `<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen frameborder="0" style="width:100%;aspect-ratio:16/9;border-radius:8px;display:block;"></iframe>`;
-            } else if (v.url && v.url.includes('vimeo.com')) {
-              const vimeoId = v.url.split('/').filter(Boolean).pop();
-              playerHtml = `<iframe src="https://player.vimeo.com/video/${vimeoId}" allowfullscreen frameborder="0" style="width:100%;aspect-ratio:16/9;border-radius:8px;display:block;"></iframe>`;
-            } else if (v.url && v.url.match(/\.(jpg|jpeg|png|webp|avif|gif)$/i)) {
-              playerHtml = `<img src="${v.url}" alt="${v.title || 'Photo'}" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block;box-shadow:0 4px 14px rgba(0,0,0,0.06);" />`;
-            } else {
-              playerHtml = `<video controls playsinline preload="metadata" poster="${v.poster || './assets/video_poster.png'}" src="${v.url}"></video>`;
-            }
-
+            const playerHtml = buildMediaPlayerHtml(v, false);
             gridHtml += `
               <div class="category-video-item">
                 ${playerHtml}
@@ -2739,7 +2997,6 @@
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        // Pause any active playing videos
         const activeVideos = modalBody.querySelectorAll('video');
         activeVideos.forEach(v => v.pause());
       }
@@ -2747,37 +3004,6 @@
       // Expose to window
       window.openCategoryGallery = openCategoryGallery;
       window.closeCategoryGallery = closeCategoryGallery;
-
-      // Attach click events on category cards
-      categoryCards.forEach(card => {
-        const catId = card.getAttribute('data-category-id');
-        card.addEventListener('click', () => openCategoryGallery(catId));
-        card.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openCategoryGallery(catId);
-          }
-        });
-
-        // 3D Tilt on mousemove
-        card.addEventListener('mousemove', e => {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const cx = rect.width / 2;
-          const cy = rect.height / 2;
-          const rotX = ((y - cy) / cy) * -5.5;
-          const rotY = ((x - cx) / cx) * 5.5;
-          card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px)`;
-          card.style.boxShadow = '0 20px 48px rgba(0, 0, 0, 0.08)';
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-          card.style.boxShadow = '';
-        });
-      });
 
       // Close handlers
       if (closeBtn) closeBtn.addEventListener('click', closeCategoryGallery);
